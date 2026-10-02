@@ -66,6 +66,24 @@
     a.href = GOOGLE_REVIEW_URL;
   });
 
+  /* ---- Live Google reviews (Elfsight) ----
+     Paste the widget ID from the Elfsight embed code here, e.g. for
+     <div class="elfsight-app-1a2b3c4d-..."> use "1a2b3c4d-...".
+     Leave empty to keep the reviews section hidden. */
+  var ELFSIGHT_WIDGET_ID = "";
+  var reviewMount = document.querySelector("[data-elfsight-mount]");
+  if (reviewMount && /^[a-z0-9-]+$/i.test(ELFSIGHT_WIDGET_ID)) {
+    var app = document.createElement("div");
+    app.className = "elfsight-app-" + ELFSIGHT_WIDGET_ID;
+    app.setAttribute("data-elfsight-app-lazy", "");
+    reviewMount.appendChild(app);
+    var loader = document.createElement("script");
+    loader.src = "https://static.elfsight.com/platform/platform.js";
+    loader.async = true;
+    document.body.appendChild(loader);
+    reviewMount.closest("section").hidden = false;
+  }
+
   /* ---- Contact form ---- */
   var form = document.getElementById("request-form");
   if (!form) return;

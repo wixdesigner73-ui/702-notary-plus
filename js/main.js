@@ -61,7 +61,7 @@
   /* ---- Google review links ----
      Paste the "Ask for reviews" link from Google Business Profile here
      (it looks like https://g.page/r/XXXXXXXX/review). */
-  var GOOGLE_REVIEW_URL = "https://www.google.com/search?q=702+Notary+Plus+reviews";
+  var GOOGLE_REVIEW_URL = "https://share.google/74qoKjC6gGjB3fj35";
   document.querySelectorAll("[data-google-review]").forEach(function (a) {
     a.href = GOOGLE_REVIEW_URL;
   });

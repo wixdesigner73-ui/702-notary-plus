@@ -58,6 +58,14 @@
     reveals.forEach(function (el) { el.classList.add("is-in"); });
   }
 
+  /* ---- Google review links ----
+     Paste the "Ask for reviews" link from Google Business Profile here
+     (it looks like https://g.page/r/XXXXXXXX/review). */
+  var GOOGLE_REVIEW_URL = "https://www.google.com/search?q=702+Notary+Plus+reviews";
+  document.querySelectorAll("[data-google-review]").forEach(function (a) {
+    a.href = GOOGLE_REVIEW_URL;
+  });
+
   /* ---- Contact form ---- */
   var form = document.getElementById("request-form");
   if (!form) return;
@@ -147,7 +155,7 @@
       "Service: " + (f.service.value || "Not specified"),
       "Preferred date: " + (f.date.value || "Not specified"),
       "Preferred time: " + (formatTime(f.time.value) || "Not specified"),
-      "Preferred location: " + (f.location.value.trim() || "Not specified"),
+      "Document language: " + (f.language.value.trim() || "Not specified"),
       "Number of documents: " + (f.documents.value || "Not specified"),
       "",
       "Additional details:",
